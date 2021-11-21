@@ -13,6 +13,6 @@ public class PushBall : MonoBehaviour
     void Start()
     {
         transform.position = Vector3.zero;
-        rb.AddForce(transform.up * thrust);
+        rb.AddForce(new Vector2(0f, 1f) * thrust);
     }
 }
