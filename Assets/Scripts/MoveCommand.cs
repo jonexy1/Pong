@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveCommand : Command
 {
     private Vector3 _direction;
-    public float speed = 0.35f;
+    public float speed = 1.0f;
 
     public MoveCommand(IEntity entity, Vector3 direction) : base(entity){
         _direction = direction;

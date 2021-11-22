@@ -15,7 +15,7 @@ public class AIMoveCommand : MonoBehaviour
 
     public Vector3 AIMovement(){
         if(isHard == true){
-            difMod = 0.1f;
+            difMod = 0.2f;
         }
 
         if(isHard == false){
