@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Out Of Bounds
   - Ball
+  - Paddle
   layers:
   - Default
   - TransparentFX
