@@ -9,20 +9,11 @@ public class AIMoveCommand : MonoBehaviour
     private float rightBound = 8.264982f;
     public GameObject go;
     private Vector2 ballPos;
-    public bool isHard = false;
-    private float difMod = 0.1f;
+    private float distMoved = 0.0001f;
 
 
     public Vector3 AIMovement(){
-        if(isHard == true){
-            difMod = 0.2f;
-        }
-
-        if(isHard == false){
-            difMod = 0.05f;
-        }
         
-
         if(!ball){
             ball = GameObject.FindGameObjectWithTag("Ball");
         }
@@ -30,12 +21,12 @@ public class AIMoveCommand : MonoBehaviour
 
         if((go.transform.position.x > leftBound) && (ballPos.x < go.transform.position.x)){
 
-            return new Vector3(-difMod, 0 ,0);
+            return new Vector3(-distMoved, 0 ,0);
         }
 
         if((go.transform.position.x < rightBound) && (ballPos.x > go.transform.position.x)){
 
-            return new Vector3(difMod, 0, 0);
+            return new Vector3(distMoved, 0, 0);
         }
         return Vector3.zero;
     }
