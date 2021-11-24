@@ -7,7 +7,7 @@ public class BallMovement : MonoBehaviour
 {
     //public Vector2 ballDirection = Vector2.up;
 
-    private float moveSpeed = 5f;
+    private float moveSpeed = 15f;
     private int randBounce;
     public Vector2 ballDirection;
     private Vector3 startPos;

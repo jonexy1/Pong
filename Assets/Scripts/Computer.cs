@@ -22,10 +22,10 @@ public class Computer : MonoBehaviour, IEntity
     void FixedUpdate()
     {
         var direction = comDirection.AIMovement();
-        if(direction != 0){
-            var moveCommand = new MoveCommand(this, rb, direction);
-            comProc.ExecuteCommand(moveCommand);
-        }
+
+        var moveCommand = new MoveCommand(this, rb, direction);
+        comProc.ExecuteCommand(moveCommand);
+
     }
 
     public void ResetComputer(){

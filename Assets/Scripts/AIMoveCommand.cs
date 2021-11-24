@@ -10,10 +10,10 @@ public class AIMoveCommand : MonoBehaviour
     private float rightBound = 8.16f;
     public GameObject go;
     private Vector2 ballPos;
-    private float speed = 40.0f;
+    private float speed = 50.0f;
     private Transform target;
     private float x = 0f;
-    private float diffMod = 0.1f;
+    private float diffMod = 9.0f;
     public bool isHard = false;
     public bool isMedium = false;
     public bool isEasy = true;
@@ -27,26 +27,26 @@ public class AIMoveCommand : MonoBehaviour
         ballPos = ball.transform.localPosition;
 
         if(isEasy == true){
-            diffMod = 0.6f;
+            diffMod = 6.0f;
             }
 
         if(isMedium == true){
             isEasy = false;
-            diffMod = 0.4f;
+            diffMod = 8.0f;
             }
 
         if(isHard == true){
             isEasy = false;
             isMedium = false;
-            diffMod = 0.2f;
+            diffMod = 9.0f;
         }
 
 
-        if((go.transform.position.x > leftBound) && ballPos.x < go.transform.position.x && (go.transform.position.x - ballPos.x) >= diffMod){
+        if((go.transform.position.x > leftBound) && ballPos.x < go.transform.position.x && (Mathf.Abs(ball.transform.position.y - go.transform.position.y )) <= diffMod){
             return x =  -speed;
         }
 
-        if((go.transform.position.x < rightBound) && ballPos.x > go.transform.position.x && (ballPos.x - go.transform.position.x) >= diffMod){
+        if((go.transform.position.x < rightBound) && ballPos.x > go.transform.position.x && (Mathf.Abs(ball.transform.position.y - go.transform.position.y )) <= diffMod){
 
             return x  = speed;
         }
