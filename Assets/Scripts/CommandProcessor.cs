@@ -12,9 +12,4 @@ public class CommandProcessor : MonoBehaviour
         command.Execute();
         _currentCommandIndex = _commands.Count -1;
     }
-
-    public void Redo(){
-        _commands[_currentCommandIndex].Execute();
-        _currentCommandIndex++;
-    }
 }

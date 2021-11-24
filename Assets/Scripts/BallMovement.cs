@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class BallMovement : MonoBehaviour
 {
@@ -11,9 +11,7 @@ public class BallMovement : MonoBehaviour
     private int randBounce;
     public Vector2 ballDirection;
     private Vector3 startPos;
-    public GameManager gm;
-    public Text player1Score;
-    public Text player2Score;
+
 
     void Awake(){
         startPos = gameObject.transform.position;
@@ -24,10 +22,11 @@ public class BallMovement : MonoBehaviour
     void Start()
     {
 
-        int rand = Random.Range(0,2);
-        if(rand == 0){
+        int randY = Random.Range(0,2);
+        
+        if(randY == 0){
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -moveSpeed);
-        } else if(rand == 1){
+        } else if(randY == 1){
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, moveSpeed);
         }
         
@@ -49,16 +48,6 @@ public class BallMovement : MonoBehaviour
             } else{
                 this.GetComponent<Rigidbody2D>().velocity = new Vector2(randBounce, moveSpeed);
             }
-        }
-
-        if(other.gameObject.tag == "Player 1 Goal"){
-            gm.gameObject.GetComponent<GameManager>().IncrementScore(player2Score);
-            gm.gameObject.GetComponent<GameManager>().ResetGame();
-        }
-
-        if(other.gameObject.tag == "Player 2 Goal"){
-            gm.gameObject.GetComponent<GameManager>().IncrementScore(player1Score);
-            gm.gameObject.GetComponent<GameManager>().ResetGame();
         }
     }
 

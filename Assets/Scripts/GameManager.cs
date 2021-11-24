@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour, IEntity
         comProc.ExecuteCommand(reset);
     }
 
+    public void ResetBall(){
+        var resBall = new ResBallCom(this);
+        comProc.ExecuteCommand(resBall);
+    }
+
     public void IncrementScore(Text toIncrement){
         int score = int.Parse(toIncrement.text);
         score ++;

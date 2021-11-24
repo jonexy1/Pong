@@ -9,19 +9,21 @@ public class Computer : MonoBehaviour, IEntity
     private CommandProcessor comProc;
     private AIMoveCommand comDirection;
     private Vector3 startPos;
+    private Rigidbody2D rb;
 
     
     private void Awake(){
         comDirection = GetComponent<AIMoveCommand>();
         comProc = GetComponent<CommandProcessor>();
+        rb = GetComponent<Rigidbody2D>();
         startPos = gameObject.transform.position;
     }
 
     void FixedUpdate()
     {
         var direction = comDirection.AIMovement();
-        if(direction != Vector3.zero){
-            var moveCommand = new MoveCommand(this, direction);
+        if(direction != 0){
+            var moveCommand = new MoveCommand(this, rb, direction);
             comProc.ExecuteCommand(moveCommand);
         }
     }
